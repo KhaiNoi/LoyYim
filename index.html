@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#160f2d">
+  <title>คืนนี้ไปลอยกระทงด้วยกันนะ ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&family=Sriracha&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sky-glow"></div>
+  <div class="moon"><span>♡</span></div>
+  <div id="stars" aria-hidden="true"></div>
+  <div id="hearts" aria-hidden="true"></div>
+  <div class="fireflies" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <audio id="bgm" src="assets/music.mp3" loop preload="auto"></audio>
+  <button class="music-btn" id="musicBtn" aria-label="เปิดหรือปิดเพลง" aria-pressed="false">🎵</button>
+
+  <main class="app">
+    <div class="top-note"><span class="tiny-heart">♥</span> A little night for us <span class="tiny-heart">♥</span></div>
+    <div class="progress" aria-label="ขั้นตอน">
+      <span class="progress-fill" id="progressFill"></span>
+    </div>
+
+    <section class="step active" id="s1">
+      <div class="eyebrow">LOI KRATHONG • OUR SPECIAL NIGHT</div>
+      <div class="hero-art">
+        <div class="halo"></div>
+        <div class="lotus" data-lit style="--fs:11px"></div>
+        <span class="sparkle sp1">⭐</span><span class="sparkle sp2">🌟</span><span class="sparkle sp3">⭐</span>
+      </div>
+      <h1>ลอยกระทง<br><em>ด้วยกันนะ</em></h1>
+      <p class="message">คืนนี้ไปลอยกระทงด้วยกันนะ</p>
+      <p class="sub-message">ขอให้คืนนี้เป็นอีกหนึ่งความทรงจำของเธอนะ</p>
+      <button class="btn primary" data-next="s2">เริ่มค่ำคืนของเรา <span>♡</span></button>
+      <div class="bottom-caption">with love ♡ under the same moon</div>
+    </section>
+
+    <section class="step" id="s2">
+      <div class="wish-icon">🌙</div>
+      <h2>ก่อนลอยกระทง...</h2>
+      <p class="sub-message">คืนนี้เธออยากไปลอยกับใคร</p>
+      <div class="picks-list" data-pick="who">
+        <button class="pick" aria-pressed="false">ไปกับริ 🥰</button>
+        <button class="pick" aria-pressed="false">ไปกับริ ถือมือกันไปด้วย 🤝</button>
+        <button class="pick" aria-pressed="false">ไปกับริ... ที่เหลือไม่สำคัญเลย ♡</button>
+      </div>
+      <button class="btn primary" data-next="s3" disabled>ต่อไป <span>♡</span></button>
+      <button class="text-btn" data-back="s1">ย้อนกลับ</button>
+    </section>
+
+    <section class="step" id="s3">
+      <div class="wish-icon">✨</div>
+      <h2>ถ้าเธออธิษฐานได้</h2>
+      <p class="sub-message">เธออยากขออะไร...</p>
+      <div class="picks-list" data-pick="wish">
+        <button class="pick" aria-pressed="false">ขอให้เรารักกันแบบนี้ไปนาน ๆ ♡</button>
+        <button class="pick" aria-pressed="false">ขอให้ได้ไปเที่ยวด้วยกันอีกเยอะ ๆ ✈️</button>
+        <button class="pick" aria-pressed="false">ขอให้ยิ้มมีความสุขทุกวัน 🌷</button>
+      </div>
+      <button class="btn primary" data-next="s4" disabled>ต่อไป <span>♡</span></button>
+      <button class="text-btn" data-back="s2">ย้อนกลับ</button>
+    </section>
+
+    <section class="step" id="s4">
+      <div class="wish-icon">🪷</div>
+      <h2>พร้อมที่จะไปลอยกระทง<br>หรือยังงับ</h2>
+      <p class="sub-message">ถ้าพร้อมแล้ว มาเลือกกระทงใบโปรดของเธอกัน</p>
+      <button class="btn primary" data-next="s5">พร้อมแล้วว <span>♡</span></button>
+      <button class="text-btn" data-back="s3">ย้อนกลับ</button>
+    </section>
+
+    <section class="step" id="s5">
+      <h2>เลือกกระทงที่เธอชอบบบ</h2>
+      <p class="sub-message">เลือกสีที่ชอบได้เลยนะ วันนี้เธอจะใช้กระทงสีอะไรน้าาา >:3 ♡</p>
+      <div class="choices">
+        <button class="choice selected" data-color="pink" aria-pressed="true"><span class="choice-art"><span class="lotus pink" data-lit style="--fs:6.5px"></span></span><strong>ชมพูหวาน</strong></button>
+        <button class="choice" data-color="purple" aria-pressed="false"><span class="choice-art"><span class="lotus purple" data-lit style="--fs:6.5px"></span></span><strong>ม่วงละมุน</strong></button>
+        <button class="choice" data-color="gold" aria-pressed="false"><span class="choice-art"><span class="lotus gold" data-lit style="--fs:6.5px"></span></span><strong>ทองอบอุ่น</strong></button>
+      </div>
+      <p class="selected-note" id="selectedNote">เลือกกระทงสีชมพูแล้ว ♡</p>
+      <button class="btn primary" id="chooseBtn">ใช้กระทงใบนี้ <span>→</span></button>
+      <button class="text-btn" data-back="s4">ย้อนกลับ</button>
+    </section>
+
+    <section class="step" id="s6">
+      <h2>จุดธูปและเทียน</h2>
+      <p class="sub-message">แตะเทียนทีละเล่มให้ครบ 3 เล่ม แล้วจุดธูปให้สว่างไสว</p>
+      <div class="stage">
+        <div class="soft-light"></div>
+        <div class="lotus big pink" id="myKt">
+          <div class="incense" id="incense"><span class="ember"></span><span class="smoke"></span></div>
+        </div>
+      </div>
+      <div class="light-actions">
+        <button class="light-btn" id="lightCandle" aria-pressed="false"><span class="action-icon">🕯️</span><span><b>จุดเทียน</b><small id="candleStatus">จุดแล้ว 0/3</small></span><span class="check">✓</span></button>
+        <button class="light-btn" id="lightIncense" aria-pressed="false"><span class="action-icon">🪔</span><span><b>จุดธูป</b><small id="incenseStatus">ยังไม่ได้จุด</small></span><span class="check">✓</span></button>
+      </div>
+      <p class="tiny-hint" id="lightHint">จุดเทียนให้ครบ 3 เล่ม และจุดธูปก่อนนะ ✨</p>
+      <button class="btn primary" id="toWish" disabled>ไปอธิษฐานกัน <span>♡</span></button>
+      <button class="text-btn" data-back="s5">ย้อนกลับไปเลือกกระทง</button>
+    </section>
+
+    <section class="step" id="s7">
+      <div class="eyebrow">MAKE A WISH</div>
+      <div class="wish-icon">🌙</div>
+      <h2>อธิษฐานกันนะ...</h2>
+      <p class="sub-message">ลองหลับตาลงสักครู่ แล้วนึกถึงสิ่งที่เธออยากให้เป็นจริงนะ...</p>
+      <div class="wish-card">
+        <span class="wish-quote">“</span>
+        <label for="wish">คำอธิษฐานของเธอ...</label>
+        <textarea id="wish" maxlength="180" placeholder="ขอให้เราได้มีความสุขและสร้างความทรงจำดี ๆ ด้วยกันไปนาน ๆ ♡"></textarea>
+        <div class="char-count"><span id="charCount">0</span>/180</div>
+      </div>
+      <p class="tiny-hint">คำอธิษฐานนี้จะลอยไปพร้อมกับกระทงของเรานะ ♡</p>
+      <button class="btn primary" id="floatBtn">ปล่อยกระทงลงสายน้ำ <span>♡</span></button>
+      <button class="text-btn" data-back="s6">ย้อนกลับ</button>
+    </section>
+
+    <section class="step float-step" id="s8">
+      <div class="eyebrow">A WISH FLOATS TO THE MOON</div>
+      <h2>ขอให้คำอธิษฐาน<br><em>เป็นจริงนะ</em></h2>
+      <p class="sub-message">กระทงของเรากำลังลอยไปด้วยกัน...</p>
+      <div class="river-scene">
+        <div class="distant-moon"></div>
+        <div class="river-stars">✦　·　✧　　 ·　✦</div>
+        <div class="river-line line1"></div><div class="river-line line2"></div>
+        <div class="floating-krathong" id="floatKt"><div class="lotus" data-lit></div></div>
+        <div class="water-glow"></div>
+      </div>
+      <div class="final-message" id="final">
+        <div class="final-heart">♡</div>
+        <p class="love-line">ขอให้ทุกคำอธิษฐานของเธอเป็นจริงนะ<br>แล้วขอให้ริได้อยู่ในนั้นด้วยทุกข้อเลย ♡</p>
+        <p class="wishShow" id="wishShow"></p>
+        <p class="names">ริ <span>♡</span> ยิ้ม</p>
+        <p class="sub-message">ขอบคุณที่มาเป็นความน่ารักในทุกๆ วันของเรานะ</p>
+        <button class="btn primary" id="again">เริ่มลอยกระทงอีกครั้ง ↻</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
